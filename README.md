@@ -3,6 +3,8 @@
 
 An automatic route-planner for all travelers within the German territory that provides the best route, based on a custom-made algorithm from scratch.
 
+https://github.com/user-attachments/assets/ec5fc970-23c6-4f40-afa5-2b0eb100046e
+
 ## The Problem
 According to news articles published by DW and Der Spiegel, published respectively in 2025 and 2026, approximately only 62.5% of DB ICE and IC long-distance trains arrived on time. 
 
