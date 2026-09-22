@@ -1,4 +1,4 @@
-# missedmytrain-showcase
+# missedmytrain-showcase 🚉
 ***The full source is maintained privately during active development. This repository documents the project's design, architecture, and a working demo.***
 
 An automatic route-planner for all travelers within the German territory that provides the best route, based on a custom-made algorithm from scratch.
