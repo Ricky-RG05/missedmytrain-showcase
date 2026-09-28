@@ -34,7 +34,18 @@ First, the system obtains the latitude and longitude of the base train station a
 
 At each step, either the object of candidate routes expands (querying further stations along the most promising branches) or collapses (narrowing several sibling candidates back down to the single closest-scoring one), before the next expansion begins.
 
-My current system makes use of exactly 54 API calls, being just below the current Deutsche Bahn Timetable-API that allows maximum 60 API-calls per minute; the steps look as follows: [("expand", 3), ("expand", 3), ("expand", 2), ("collapse", 1), ("expand", 3)]
+My current system makes use of the following fetch-system:
+[("expand", 3), ("expand", 3), ("expand", 2), ("collapse", 1), ("expand", 3)]
+
+The candidates being expanded/collapsed and the children produced look the following way:
+<img width="897" height="280" alt="image" src="https://github.com/user-attachments/assets/8166a2a9-23a4-448a-98fa-1186f6e4c41e" />
+**In the worst case scenario, we get 32 departure fetches**
+
+The system makes API-calls from the Deutsche Bahn Timetable to retrieve all the departures from a given train station. Since the algorithm caches all the departures, it means that trains getting stops at repeated stations don't get further API-calls.
+
+The current system uses on average 4 API-calls per search. Nonetheless, the algorithm has a local-minimum constraint, namely: For each route-candidate we calculate a score (the remaining distance between the endpoint-coordinates and the destination-coordinates), which is a straight-line. 
+
+Hence, for routes that have no direct approximation the current system provides a fallback partial route. At the moment, I only use the distance variable to decide whether the route is valid and if the algorithm should query further in a linear-direction. For the next phase, I'm going to obtain the information from the German National Datashare-Database to have more variables to provide a much richer decision-taking process.
 
 I chose the following beam-search principle, considering the fact that the more far away the user is from the destination, the wider the search ought to be; the closer the kilometer distance is, the narrower it must be (i.e. branching factor should shrink as the route approaches the destination).
 
