@@ -38,7 +38,7 @@ My current system makes use of the following fetch-system:
 [("expand", 3), ("expand", 3), ("expand", 2), ("collapse", 1), ("expand", 3)]
 
 The candidates being expanded/collapsed and the children produced look the following way:
-<img width="600" height="300" alt="image" src="https://github.com/user-attachments/assets/8166a2a9-23a4-448a-98fa-1186f6e4c41e" />
+<img width="897" height="280" alt="image" src="https://github.com/user-attachments/assets/8166a2a9-23a4-448a-98fa-1186f6e4c41e" />
 
 **In the worst case scenario, we get 32 departure fetches**
 
