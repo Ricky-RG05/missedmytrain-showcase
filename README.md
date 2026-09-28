@@ -38,7 +38,14 @@ My current system makes use of the following fetch-system:
 [("expand", 3), ("expand", 3), ("expand", 2), ("collapse", 1), ("expand", 3)]
 
 The candidates being expanded/collapsed and the children produced look the following way:
-<img width="897" height="280" alt="image" src="https://github.com/user-attachments/assets/8166a2a9-23a4-448a-98fa-1186f6e4c41e" />
+
+| Step       | Candidates being expanded | Fetches (× 2 slices) | Children produced |
+|------------|---------------------------|----------------------|-------------------|
+| expand 3   | 1                         | 2                    | up to 3           |
+| expand 3   | 3                         | 6                    | up to 9           |
+| expand 2   | 9                         | 18                   | up to 18          |
+| collapse   |                           | 0                    | 3 survive         |
+| expand 3   | 3                         | 6                    | up to 9           |
 
 **In the worst case scenario, we get 32 departure fetches**
 
